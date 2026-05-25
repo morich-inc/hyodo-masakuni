@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兵藤正郡 様｜morich キャリアご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E60012;
+    --red-light: #fff0f0;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-600: #2563eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f5; color: var(--gray-900); line-height: 1.75; }
+  header { background: #fff; border-bottom: 3px solid var(--red); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  header img { height: 38px; }
+  header .htxt p:first-child { font-size: 12px; color: var(--gray-500); }
+  header .htxt p:last-child { font-size: 17px; font-weight: 900; }
+  .nav-bar { background: var(--gray-900); padding: 0 12px; overflow-x: auto; white-space: nowrap; }
+  .nav-bar a { display: inline-block; padding: 13px 18px; color: #ccc; text-decoration: none; font-size: 12px; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-bar a:hover { color: #fff; border-bottom-color: var(--red); }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 14px 64px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 40px; overflow: hidden; border-top: 5px solid var(--red); }
+  .card-inner { padding: 28px 28px 36px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--red-light); }
+  .badge-blue { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+  .co-name { font-size: clamp(22px, 5vw, 34px); font-weight: 900; line-height: 1.2; margin-bottom: 5px; }
+  .co-url { font-size: 12px; margin-bottom: 22px; }
+  .co-url a { color: var(--blue-600); text-decoration: none; }
+  .co-url a:hover { text-decoration: underline; }
+  .overview { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .overview h3 { font-size: 10px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .overview tr { border-bottom: 1px solid var(--blue-100); }
+  .overview tr:last-child { border-bottom: none; }
+  .overview th { text-align: left; padding: 6px 14px 6px 0; color: var(--gray-600); font-weight: 700; width: 100px; vertical-align: top; white-space: nowrap; }
+  .overview td { padding: 6px 0; color: var(--gray-700); }
+  .highlight { background: var(--red-light); border: 2px solid var(--red); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .highlight h3 { font-size: 13px; font-weight: 900; color: var(--red); margin-bottom: 8px; }
+  .highlight p, .highlight li { font-size: 13px; color: #7a0000; margin-bottom: 4px; }
+  .highlight ul { padding-left: 16px; }
+  .accordion { margin-bottom: 16px; }
+  .acc-header { display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; padding: 12px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; user-select: none; transition: background 0.15s; }
+  .acc-header:hover { background: var(--gray-100); }
+  .acc-header .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--red); border-left: 3px solid var(--red); padding-left: 8px; margin-bottom: 5px; display: block; }
+  .acc-preview { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .acc-header-left { flex: 1; }
+  .acc-icon { width: 28px; height: 28px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gray-200); font-size: 13px; transition: transform 0.25s, background 0.2s; }
+  .acc-header.open .acc-icon { transform: rotate(180deg); background: var(--red); color: #fff; }
+  .acc-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .acc-body { display: none; padding: 20px 18px; border: 1px solid var(--gray-200); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 10px; }
+  .acc-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .acc-body li { margin-bottom: 6px; }
+  .job-wrap { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .job-header { background: var(--gray-900); color: #fff; padding: 14px 18px; display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; user-select: none; }
+  .job-title-text { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
+  .job-preview { font-size: 11px; color: #aaa; line-height: 1.5; }
+  .job-icon { width: 26px; height: 26px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 12px; transition: transform 0.25s; }
+  .job-header.open .job-icon { transform: rotate(180deg); }
+  .job-body { display: none; padding: 20px 18px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .job-body.open { display: block; }
+  .job-body p { margin-bottom: 10px; }
+  .job-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .job-body li { margin-bottom: 6px; }
+  .job-section { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 6px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 8px; }
+  .tag-must { background: var(--red); color: #fff; }
+  .tag-want { background: var(--gray-600); color: #fff; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; border-left: 3px solid var(--red); padding-left: 8px; margin: 22px 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lbtn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 6px; background: var(--gray-900); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .lbtn:hover { background: var(--red); }
+  .lbtn-out { background: transparent; color: var(--gray-900); border: 2px solid var(--gray-200); }
+  .lbtn-out:hover { background: var(--gray-900); color: #fff; border-color: var(--gray-900); }
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: var(--gray-500); border-top: 1px solid var(--gray-200); background: #fff; }
+  @media(max-width:600px){ .card-inner{ padding: 18px 14px 24px; } .overview th { width: 80px; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="morich_logo.jpg" alt="morich">
+  <div class="htxt">
+    <p>morich キャリアご提案資料</p>
+    <p>兵藤正郡 様</p>
+  </div>
+</header>
+<nav class="nav-bar">
+  <a href="#k1">1. 株式会社Morght</a>
+  <a href="#k2">2. 株式会社りらいぶ</a>
+  <a href="#k3">3. ドクターズ株式会社</a>
+</nav>
+<main>
+
+<div class="card" id="k1"><div class="card-inner">
+  <div class="badges"><span class="badge">事業責任者候補／ディレクター</span><span class="badge badge-blue">非上場</span></div>
+  <div class="co-name">株式会社Morght</div>
+  <div class="co-url"><a href="" target="_blank"></a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区南青山3-1-34 3rd MINAMI AOYAMA 6F</td></tr><tr><th>設立</th><td>2018年5月23日</td></tr><tr><th>従業員数</th><td>28名（2026年2月）</td></tr><tr><th>資本金</th><td>3312万円</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>事業拡大フェーズのど真ん中で経営インパクトのある大きなチャレンジがたくさん転がっている</li><li>多種多様な業界で活躍してきたプロ人材が集まるため、高いレベルの中で自分の実力を試したり、さらなる自己成長をしていくための環境が備わっている</li><li>少数組織だからこそ社員みんなで働きやすいカルチャーを形成していくことができる</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">Morght（モート）は、「あなたがあなたらしく生きるための、最高の準備を届けつづける。」をミッションに掲げ、ライフスタイルブランドを展開する"ものづくりの会社"です。私たちは各事業を通じて、最高の準備を日常に溶け込ませ、"健康が自動化される世界" の実現を目指しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>Morght（モート）は、「あなたがあなたらしく生きるための、最高の準備を届けつづける。」をミッションに掲げ、ライフスタイルブランドを展開する"ものづくりの会社"です。私たちは各事業を通じて、最高の準備を日常に溶け込ませ、"健康が自動化される世界" の実現を目指しています。</p><p>現在は、睡眠ブランド「NELL」、休息ブランド「YURUMARU」を展開し、生活の質を高めるプロダクトを提供しています。主力事業である睡眠ブランド「NELL」では、寝心地を徹底追求したプロダクト開発に加え、120日間のフリートライアル、中間コストの削減、コンパクト配送など、睡眠体験そのものの改善に取り組んできました。</p><p>今後は「ものづくりを通じたQOL向上」と「健康のトータルサポート」をさらに推進すべく、マルチブランド戦略を強化していきます。</p><p><strong>働く人々、働く環境</strong><br>広告代理店・コンサルティングファーム・ITベンチャーなどものづくりではない異業種のメンバーが多数在籍しています。できるだけルールは設けていないため、パフォーマンスを発揮しやすい最適な環境を個々人が考えて働けます。（ハイブリッド型ワークスタイル、フレックスタイム制、副業可）</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 事業責任者候補／ディレクター</div>
+          <div class="job-preview">「NELL」を中心に拡大してきたMorghtの国内事業部の責任者候補として、各ブランドを束ね非連続のグロースを実現</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>【Morghtの中核を担うD2C事業の責任者候補】</strong><br>「NELL」を中心に拡大してきたMorghtの国内事業部の責任者候補として、各ブランドを束ね非連続のグロースを実現するための事業計画策定、組織戦略の立案及び中長期的なブランドエクイティ構築の推進を担っていただきます。「P/Lの管理者」としてではなく、非連続成長を作る幹部候補としてのポジションです。</p><p><strong>【業務詳細】</strong></p><ul><li>「NELL」「YURUMARU」を含むMorghtの事業の横断的なマネジメント</li><li>事業計画の立案及び実行に向けた、経営層〜現場の事業部員との連携</li><li>事業部全体のP/Lの策定及び管理</li><li>中長期的な成長へと寄与する組織作り</li></ul><p><strong>応募資格</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>EC / D2C事業での実務経験</li><li>事業責任者やブランドマネージャーとして事業を運営した経験</li><li>事業戦略、P/L、KGI/KPIの策定と実行に向けたアクションプラン設計の経験</li><li>経営層との折衝経験、あるいはご自身で会社を経営されていた方</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>ブランド組織におけるマネジメント経験</li><li>スタートアップ環境でのご経験</li></ul><p><strong>求める人物像</strong></p><ul><li>戦略的思考力に基づきチームを牽引するリーダーシップをお持ちの方</li><li>事業拡大に向けてPDCAを迅速に回して正解にたどり着ける方</li><li>困難な環境を楽しめる方、課題解決に向けて前向きな方</li><li>チームでコトに向き合うことに慣れている方</li></ul><p><strong>想定年収：1260万円～</strong>※経験を考慮して優遇します</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://speakerdeck.com/morght/morght-hui-she-shao-jie-zi-liao-recruiting-last-updated-2024-dot-07" target="_blank">🏢 企業紹介資料</a><a class="lbtn lbtn-out" href="https://morght.com/career" target="_blank">👥 働く人々のインタビュー</a></div>
+</div></div>
+
+<div class="card" id="k2"><div class="card-inner">
+  <div class="badges"><span class="badge">営業本部長（幹部候補）</span><span class="badge badge-blue">非上場</span></div>
+  <div class="co-name">株式会社りらいぶ</div>
+  <div class="co-url"><a href="" target="_blank"></a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>宮城県仙台市泉区長命ケ丘3-27-3</td></tr><tr><th>設立</th><td>2017年10月</td></tr><tr><th>従業員数</th><td>28名</td></tr><tr><th>資本金</th><td>2,400万円</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>前期売上約170億円、前々期比200％超の成長を遂げている急成長企業</li><li>これまでの受動的な営業から、能動的に市場を開拓する「攻めの営業組織」への転換期にある</li><li>法人営業（BtoB）の立ち上げを戦略立案から実行までリードできる重要なポジション</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">前期売上約170億円、前々期比200％超の成長を遂げています。今後のさらなる拡大に向け、営業体制の転換と強化が必要なフェーズにあります。これまでの売上は、テレビ通販・EC（直販）や卸・代理店経由による、比較的受動的な案件対応が中心でした。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>前期売上約170億円、前々期比200％超の成長を遂げています。今後のさらなる拡大に向け、営業体制の転換と強化が必要なフェーズにあります。</p><p>これまでの売上は、テレビ通販・EC（直販）や卸・代理店経由による、比較的受動的な案件対応が中心でした。今後は、自ら戦略を描き、能動的に市場を開拓して売上を創出する「攻めの営業組織」への転換を目指しています。</p><p>現在、既存の代理店・卸チャネルを管掌する営業部長は在籍していますが、介護事業者や運送業など、肉体労働を伴う現場に向けた福利厚生・ユニフォーム用途での法人導入については、まだ本格的に着手できていません。この法人営業（BtoB）の立ち上げを、戦略立案から実行までリードできる人材を求めています。</p><p>りらいぶは理念である"世界中の人たちが心身ともに健康で幸せな生活を作り上げることに寄与する"を掲げこれまで歩んできました。少しずつ皆さまの健康や幸せのキッカケになれていることの実感しています。多くのお客様から強い支持をいただいています。しかしまだまだやれること、やらなければいけないことがあります。一緒に志を持って、世界に向けて進みましょう。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 営業本部長（幹部候補）</div>
+          <div class="job-preview">法人営業（BtoB）チャネルの立ち上げおよび販路拡大を戦略立案から実行までリード</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>ミッション</strong></p><ul><li>法人営業（BtoB）チャネルの立ち上げおよび販路拡大</li><li>営業戦略の立案から実行</li><li>営業組織全体の統括・構築</li></ul><p><strong>期待役割</strong></p><ul><li>自ら商談を担い、売上・粗利を直接創出</li><li>法人営業の勝ちパターンを再現可能な型として構築</li><li>短期受注ではなく、長期信頼を前提とした顧客基盤形成</li></ul><p><strong>応募資格</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>法人営業経験（BtoB）</li><li>パイプライン管理・KPI設計</li><li>提案の構造化・言語化能力</li></ul><p><strong>共通人物要件</strong></p><ul><li>ミッション・ビジョンを"理念"ではなく"事業設計"として落とせる（社会的意義と収益性を同時に成立させた経験、または強い意志がある）</li><li>自ら手を動かしながら、周囲を巻き込める（指示待ち・評論家ではなく、先頭に立って動ける。ただし独善ではなく、関係者を尊重しながら前に進める）</li><li>正解がない環境で、仮説→実行→検証を高速で回せる（不確実性を言い訳にしない。失敗を隠さず、学習に変えられる）</li><li>部門最適ではなく、全体最適で考えられる（自部署の成果が、会社全体・顧客・社会にどう影響するかまで考えられる）</li></ul><p><strong>想定年収</strong><br>入社時：1,000〜1,200万円<br>部長昇格後：1,150〜1,300万円</p>
+        <div class="meta-pills"><span class="pill">📍 東京・仙台</span><span class="pill">🏢 基本出社</span><span class="pill">⚖️ 条件により副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.youtube.com/watch?v=YNECUoLm2kQ" target="_blank">📺 幹部候補人材募集動画</a></div>
+</div></div>
+
+<div class="card" id="k3"><div class="card-inner">
+  <div class="badges"><span class="badge">海外M&A・PMIマネージャー／シニアマネージャー候補</span><span class="badge badge-blue">非上場</span></div>
+  <div class="co-name">ドクターズ株式会社</div>
+  <div class="co-url"><a href="" target="_blank"></a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>設立</th><td>2016年9月26日</td></tr><tr><th>従業員数</th><td>45名</td></tr><tr><th>資本金</th><td>1,533,235,000円 (資本準備金含む)</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>約40万人の医療従事者と約7.5万施設の医療機関、さらに約700名の高度専門医ネットワークを有する日本有数の医療ネットワークを基盤とした企業</li><li>グローバル市場での事業開発およびM&Aを一気通貫で経験できる</li><li>経営直下で海外戦略の中核を担えるポジションで、将来的に海外事業責任者／経営メンバーを目指せる</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">ドクターズは、約40万人の医療従事者と約7.5万施設の医療機関、さらに大学教授クラスを含む約700名の高度専門医ネットワークを有する、日本有数の医療ネットワークを基盤とし、AIをはじめとするテクノロジーをかけ合わせたヘルスケアプラットフォーム事業を行う企業です。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>ドクターズは、約40万人の医療従事者と約7.5万施設の医療機関、さらに大学教授クラスを含む約700名の高度専門医ネットワークを有する、日本有数の医療ネットワークを基盤とし、AIをはじめとするテクノロジーをかけ合わせたヘルスケアプラットフォーム事業を行う企業です。</p><p>このヘルスケアプラットフォームを用いて、医療現場の知見と企業の技術・サービスをつなぐことで、治療や診療から日常における食や運動まで幅広いソリューションを多数の大手パートナーとともに構築しています。</p><p>ドクターズは、ビジネスとメディカルの橋渡しを通じて、国内及びグローバル市場におけるデジタルヘルスエコシステムの持続的な発展とイノベーションの創出を支援しています。</p><p><strong>事業概要</strong></p><ul><li><strong>DoctorsHub™『作る』</strong>：企業と医療専門家が協力し、医療・デジタルヘルスサービスの開発を支援</li><li><strong>Doctors Next® 『拡げる』</strong>：医療・デジタルヘルスケアサービスを医療現場へ浸透させるための流通・拡販支援</li><li><strong>Doctors Station®『届ける』</strong>：企業がB2C向けのヘルスケアサービスを構築するためのプラットフォーム</li></ul><p><strong>CEO柳川貴雄からのメッセージ</strong><br>私は医師であり起業家として、デジタルの力を活用し、どこにいても安心して健康に生きられる社会を実現することを目指しています。私たちドクターズは、医療と民間企業の間に立ち、共にエコシステムを築きながら、より良い医療環境を創り上げることを目指しています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 海外M&A・PMIマネージャー／シニアマネージャー候補（経営企画）</div>
+          <div class="job-preview">グローバル市場におけるヘルスケア事業の成長を加速するため、海外M&Aの実務を主体的に推進</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>業務概要</strong><br>グローバル市場におけるヘルスケア事業の成長を加速するため、海外M&Aの実務を主体的に推進できる担当者を募集します。経営陣直下で、リサーチから交渉・PMIまで一貫してリードいただくポジションです。</p><p>ドクターズのヘルスケアプラットフォーム事業を拡大するため、アメリカをはじめ世界の様々な地域と国における土台となる医療機関ネットワーク基盤を構築し、グローバル規模で患者や医師に貢献することのできる仕事です。</p><p><strong>業務内容</strong></p><ul><li>海外市場における成長戦略の立案および実行推進</li><li>海外新規事業の企画・立ち上げ・グロース</li><li>クロスボーダーM&Aの推進（ソーシング、DD、実行、PMI）</li><li>海外企業とのアライアンス／資本提携の企画・推進</li><li>海外拠点・子会社の設立および経営管理・業績モニタリング</li><li>PMIにおける統合戦略の設計および実行リード</li><li>現地パートナー／専門家との連携およびプロジェクト推進</li></ul><p><strong>応募資格</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>事業会社またはコンサルティングファームにおける経営企画／事業開発経験（3年以上）</li><li>財務・会計知識（PL／BS／CFの理解）</li><li>プロジェクト推進力およびステークホルダーマネジメント能力</li><li>英語でのビジネスコミュニケーション能力</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>海外事業の立ち上げまたはグロース経験</li><li>クロスボーダーM&Aの実務経験</li><li>PMIの実務経験</li><li>医療／ヘルスケア業界での業務経験</li></ul><p><strong>求める人物像</strong></p><ul><li>グローバル環境で主体的に意思決定し、実行できる方</li><li>不確実性の高い市場でも前に進める推進力を持つ方</li><li>戦略と実行の両方に責任を持てる方</li></ul><p><strong>予定年収：1200万円〜1500万円</strong></p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">❌ 副業不可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"></div>
+</div></div>
+</main>
+<footer>
+  <p>本資料はmorichが兵藤正郡 様のためにご用意した個人情報を含む機密資料です。無断転用・転載はご遠慮ください。</p>
+  <p style="margin-top:6px;">© 株式会社morich</p>
+</footer>
+<script>
+  function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+  function toggleJob(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
